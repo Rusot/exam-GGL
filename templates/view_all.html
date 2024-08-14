@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Todos los Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Todos los Datos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Valor</th>
+                <th>Timestamp</th>
+                <th>Procesado</th>
+                <th>Categoría</th>
+                <th>Conteo de Minutos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in all_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.value }}</td>
+                <td>{{ data.timestamp }}</td>
+                <td>{{ data.processed }}</td>
+                <td>{{ data.category }}</td>
+                <td>{{ data.minute_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Volver a la página principal</a>
+</body>
+</html>

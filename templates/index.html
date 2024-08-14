@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTACIONAMIENTO GGL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>ESTACIONAMIENTO GGL</h1>
+
+    <!-- entrada de texto que guarda las placas entrantes-->
+    <form method="POST">
+        <label for="inse">nuevo residente:</label>
+        <input type="text" id="inse" name="inse"required>
+
+        <label for="category">Categoría:</label>
+        <select id="category" name="category" required>
+            <option value="" disabled selected>Seleccione un categoría</option>  <!-- Opción por defecto -->
+
+            <option value="residente">Residente</option>
+            <option value="no residente">No Residente</option>
+            <option value="oficial">Oficial</option>
+        </select>
+        
+        <button type="submit" name="save">Guardar</button>
+
+    </form>
+
+    <!-- Espacio adicional entre formularios -->
+    <div style="height: 30px;"></div> <!-- Ajusta la altura según lo necesites -->
+
+    <!-- Formulario para buscar datos -->
+    <form method="POST">
+        <label for="out">salida:</label><br>
+        <input type="text" id="out" name="out"><br>
+        <button type="submit" name="search">Buscar</button>
+    </form>
+
+
+
+       <!-- Espacio adicional entre formularios -->
+    <div style="height: 30px;"></div> <!-- Ajusta la altura según lo necesites -->
+
+    <form method="POST">
+        <label for="nores">entrada:</label><br>
+        <input type="text" id="nores" name="nores"><br>
+        <button type="submit" name="entrada">Registrar</button>
+    </form>
+
+    <div style="height: 30px;"></div> <!-- Ajusta la altura según lo necesites -->
+    <button onclick="window.location.href='/view_all';">Ver Todos los Datos</button>
+
+    <!-- Resultado de la búsqueda -->
+    {% if search_result %}
+        <p>{{ search_result }}</p>
+    {% endif %}
+
+
+</body>
+</html>
